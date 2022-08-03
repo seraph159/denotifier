@@ -4,13 +4,13 @@ import {getAuth, signInWithPopup, GoogleAuthProvider} from 'firebase/auth';
 
 
 const config = {
-  apiKey: process.env.FIREBASE_API_KEY,
-  authDomain: process.env.FIREBASE_AUTH_DOM,
-  projectId: process.env.FIREBASE_PJT_ID,
-  storageBucket: process.env.FIREBASE_STG_BUCKET,
-  messagingSenderId: process.env.FIREBASE_MSG_ID,
-  appId: process.env.FIREBASE_APP_ID,
-  measurementId: process.env.FIREBASE_MEASURE_ID
+  apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
+  authDomain: process.env.NEXT_PUBLIC_FIREBASE_AUTH_DOM,
+  projectId: process.env.NEXT_PUBLIC_FIREBASE_PJT_ID,
+  storageBucket: process.env.NEXT_PUBLIC_FIREBASE_STG_BUCKET,
+  messagingSenderId: process.env.NEXT_PUBLIC_FIREBASE_MSG_ID,
+  appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID,
+  measurementId: process.env.NEXT_PUBLIC_FIREBASE_MEASURE_ID
 };
 
 console.log(process.env.FIREBASE_API_KEY)
