@@ -1,0 +1,29 @@
+@import "./colors.module";
+
+.dn__container{
+
+    .nav__menu{
+        display: flex;
+        justify-content: space-between;
+        padding: 20px 100px;
+
+        .nav__list{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            list-style-type: none;
+
+            .nav__item{
+                padding: 0px 20px;
+                color: $--color-primary;
+            }
+        }
+
+        .nav__logo{
+            padding: 0px 20px;
+            color: $--color-secondary;
+            font-size: x-large;
+        }
+    }
+
+}

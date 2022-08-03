@@ -1,0 +1,36 @@
+@import "./colors.module";
+
+.dn__container{
+    width: calc(100% - 2rem);
+    min-height: calc(30vh - 10px);
+    margin: 150px 1rem 50px 1rem;
+
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    align-items: center;
+
+    .intro__data__primary{
+
+        .intro__title{
+            color:$--color-primary;
+        }
+
+        .intro__subtitle{
+            color:$--color-secondary;
+        }
+    }
+
+    .intro__data__secondary{
+        padding: 20px;
+
+        .btn__started{
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            border: solid $--color-primary 2px;
+            border-radius: 3px;
+            color: $--color-primary;
+        }
+    }
+}

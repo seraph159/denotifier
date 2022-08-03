@@ -1,0 +1,49 @@
+@import "./colors.module";
+
+.dn__container{
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    min-height: calc(50vh - 10px);
+    margin: 150px 0rem 50px 0rem;
+    padding: 20px;
+    color:$--color-primary;
+    background: #354755;
+    
+
+    .main__left{
+        display: flex;
+        flex-wrap: wrap;
+        width: 100%;
+        justify-content: center;
+
+        .main__item{
+            padding: 20px;
+        }
+    }
+    
+    .main__dropdown{
+        
+    }
+
+    .main__input input{
+        padding: 9px 53px 9px 11px;
+        border: 1px solid #ccc;
+    }
+
+    .main__right{
+
+        .btn__digest{
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            border: solid $--color-primary 2px;
+            border-radius: 3px;
+            color: $--color-primary;
+            cursor: pointer;
+        }
+    }
+}
