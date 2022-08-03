@@ -13,6 +13,7 @@ const config = {
   measurementId: process.env.FIREBASE_MEASURE_ID
 };
 
+console.log(process.env.FIREBASE_API_KEY)
   const firebaseApp =  initializeApp(config);
 
   export const auth = getAuth(firebaseApp);
