@@ -13,7 +13,6 @@ const config = {
   measurementId: process.env.NEXT_PUBLIC_FIREBASE_MEASURE_ID
 };
 
-console.log(process.env.FIREBASE_API_KEY)
   const firebaseApp =  initializeApp(config);
 
   export const auth = getAuth(firebaseApp);
@@ -40,17 +39,13 @@ console.log(process.env.FIREBASE_API_KEY)
 export const createUserProfileDocument = async (userAuth, additionalData) => {
     if(!userAuth) return; //if userAuth is null then exit
 
-    // console.log(userAuth)
-
     const userRef = doc(firestore, "users", userAuth.uid);
     const snapShot = await getDoc(userRef);
-
-    // console.log(userRef)
 
     if (!snapShot.exists()) {
       const { displayName, email } = userAuth;
       const createdAt = new Date();
-      //console.log("Document data:", snapShot.data());
+
       try{
         await setDoc(userRef, {
           displayName,
@@ -69,13 +64,11 @@ export const createUserProfileDocument = async (userAuth, additionalData) => {
 export const createHnDocument = async (userAuth, additionalData) => {
     if(!userAuth) return; //if userAuth is null then exit
 
-    // console.log(userAuth)
-
     const userRef = doc(firestore, "users", userAuth.uid);
 
     const { displayName, email } = userAuth;
     const createdAt = new Date();
-      //console.log("Document data:", snapShot.data());
+
     try{
         await setDoc(userRef, {
           email,
@@ -121,5 +114,3 @@ export const createHnDocument = async (userAuth, additionalData) => {
   const provider = new GoogleAuthProvider();
   provider.setCustomParameters({prompt: 'select_account'});
   export const signInWithGoogle = () => signInWithPopup(auth, provider);
-
-//   export default firebase;
