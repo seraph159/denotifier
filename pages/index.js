@@ -2,8 +2,9 @@ import Head from 'next/head'
 import Image from 'next/image'
 import Intro from "../components/intro.component"
 import Main from "../components/main.component"
-import styles from '../styles/Home.module.scss'
 import Navbar from '../components/navbar.component'
+import Footer from '../components/footer.component'
+import styles from '../styles/Home.module.scss'
 
 import { useEffect } from 'react';
 import { auth, createUserProfileDocument } from "../firebase/firebase.utils";
@@ -28,7 +29,10 @@ function Home() {
         // User is signed in, see docs for a list of available properties
         // https://firebase.google.com/docs/reference/js/firebase.User 
 
-        const userRef = await createUserProfileDocument(userAuth);
+        const userRef = await createUserProfileDocument(userAuth, {
+          hNum:"",
+          reddit:""
+        });
 
         const unSubscribeFromSnapshot = onSnapshot(userRef, (snapShot) => {
           setCurrentUser({
@@ -72,6 +76,7 @@ function Home() {
         <Navbar />
         <Intro />
         <Main isHomePage={true}/>
+        <Footer />
     </div>
   )
 }
