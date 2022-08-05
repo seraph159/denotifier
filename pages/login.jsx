@@ -4,6 +4,7 @@ import {signInWithEmailAndPassword, onAuthStateChanged } from 'firebase/auth'
 import Link from 'next/link'
 import {useRouter} from 'next/router'
 import Navbar from '../components/navbar.component'
+import styles from '../styles/Login.module.scss'
 
 const Login = () => {
 
@@ -52,21 +53,36 @@ useEffect(() => {
  return (
     <>
     <Navbar/>
-    <form className="sign-in-form" onSubmit={handleSubmit}>
-    <h2 className="text-center">Sign In</h2>
+    <div className={styles.login__main__container}>
+    <h2 className="text-center">Login</h2>
+    <div className={styles.login__container}>
+    <form className={styles.sign_in_form} onSubmit={handleSubmit}>
     <hr/>
-    <div className="form-group">
+    <div className={styles.form__group}>
+      Email
         <input type="email" onChange={handleChange} placeholder="Email Address" className="form-control" name="email" required="required" />
     </div>
-    <div className="form-group">
+    <div className={styles.form__group}>
+      Password
         <input type="password" onChange={handleChange} placeholder="Password" className="form-control" name="password" required="required" />
     </div>
-    <div className="form-group">
-        <button type="submit" className="btn btn-primary btn-block btn-lg">Sign In</button>
-        <button onClick={signInWithGoogle} className="btn btn-primary btn-block btn-lg">Sign In With Google</button>
+    <div className={styles.form__group}>
+        <button className={styles.button} type="submit">Login</button>
     </div>
     </form>
-    <div className="text-center"> Don&apos;t have an account? <Link href="/signup"> Sign Up here</Link></div>
+    <div className={styles.line__title}>Or continue with</div>
+    <a className={styles.button} onClick={signInWithGoogle} >Login With Google</a>
+    </div>
+    <div className={styles.text__last}> Don&apos;t have an account? <span className={styles.signup__link}><Link href="/signup"> Sign Up here</Link></span></div>
+    </div>
+    <style jsx global>{`
+            /* Other global styles such as 'html, body' etc... */
+
+            #__next {
+              height: 100vh;
+            }
+          `}</style>
+
     </>
 )
 }
