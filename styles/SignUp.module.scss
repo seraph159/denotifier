@@ -1,0 +1,100 @@
+@import "./colors.module";
+
+
+.signup__main__container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 80%;
+    color: $--color-primary;
+
+    .signup__container{
+        border: 1px solid #C4C4C4;
+        border-radius: 0.25rem;
+        padding: 0px 20px 10px 20px;
+        margin: 10px;
+    
+    .sign_up_form{
+    
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 20px 0px 0px 0px;
+
+        .form__group{
+            display: flex;
+            flex-direction: column;
+            color: $--color-secondary;
+            width: 100%;
+
+            input{
+                border-radius: 0.25rem;
+                padding: .5rem .75rem;
+                margin: 5px 0px;
+            }
+        }
+    }
+
+
+    .line {
+        display:inline-block;
+        width: 53px;
+        height: 0;
+        border: 1px solid #C4C4C4;
+        margin: 3px;
+      }
+
+    
+      .line__title {
+        display: flex;
+        align-items: center;
+        text-align: center;
+        width: 100%;
+
+        &::before,
+      &::after {
+        content: '';
+        flex: 1;
+        border-bottom: 1px solid #C4C4C4;
+      }
+      
+      &:not(:empty)::before {
+        margin-right: .25em;
+      }
+      
+      &:not(:empty)::after {
+        margin-left: .25em;
+      }
+    }
+
+    .button{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 5px 15px;
+        margin: 10px;
+        border: solid $--color-primary 2px;
+        border-radius: 3px;
+        font-size: medium;
+        cursor: pointer;
+        transition: border-color 0.2s, background-color 0.2s, color 0.2s, transform 0.1s;
+
+        &:hover{
+            background-color: #fff;
+            border-color: transparent;
+            color: #444;
+        }
+
+        &:first-child:hover{
+            transform: scale(1.05) perspective(1px)
+        }
+    }
+}
+
+.login__link{
+    text-decoration: underline;
+}
+
+}
