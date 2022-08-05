@@ -22,7 +22,7 @@ return (
             {isLoggedIn ? <li onClick={onSignOut} className={styles.nav__item}><a className="nav__link">SignOut</a></li>
              : 
             (<><li className={styles.nav__item}><Link href="/login"><a className="nav__link">Login</a></Link></li>
-            <li className={styles.nav__item}><Link href="/signup"><a className="nav__link">SignUp</a></Link></li>
+            <li className={styles.nav__item}><Link href="/signup"><a className="nav__link">Sign Up</a></Link></li>
             </>)}
         </ul>
     </div>
