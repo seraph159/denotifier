@@ -8,10 +8,18 @@
     align-items: center;
 
     min-height: calc(50vh - 10px);
-    margin: 150px 0rem 50px 0rem;
+    margin: 50px 0rem 50px 0rem;
     padding: 20px;
     color:$--color-primary;
     background: #354755;
+
+    .dn__header{
+
+        text-transform: uppercase;
+        letter-spacing: .08rem;
+        font-weight: 700;
+        font-size: 75%;
+    }
     
 
     .main__left{
@@ -25,13 +33,22 @@
         }
     }
     
-    .main__dropdown{
-        
-    }
 
-    .main__input input{
-        padding: 9px 53px 9px 11px;
-        border: 1px solid #ccc;
+    .main__input {
+    
+        display: flex;
+        flex-direction: column;
+
+        .main__input__text{
+            font-size: 75%;
+            font-weight: bold;
+            color: #dc3545;
+        }
+
+        input{
+            padding: 9px 53px 9px 11px;
+            border: 1px solid #ccc;
+        }
     }
 
     .main__right{
@@ -44,6 +61,13 @@
             border-radius: 3px;
             color: $--color-primary;
             cursor: pointer;
+
+            &:hover{
+                background-color: #fff;
+                border-color: transparent;
+                color: #444;
+            }
+    
         }
     }
 }

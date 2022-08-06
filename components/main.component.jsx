@@ -10,11 +10,12 @@ import styles from '../styles/Main.module.scss'
 const Main = ({handleList, isHomePage}) => {
 
 let router = useRouter()
- const [state, setState] = useState({
+const [inputErrorToggle, setInputErrorToggle] = useState(false)
+const [state, setState] = useState({
   rSource:"hn",
   numPost:5,
   subRedditToggle:false,
-  subReddit:"none"
+  subReddit:""
  })
 
  const options = [
@@ -48,7 +49,9 @@ const handleDigest = () => {
   router.push('/login')
 }
 
-const handleAddDigest = () => {
+const handleAddDigest = (e) => {
+
+  e.preventDefault();
 
   let {rSource, numPost, subReddit} = state;
 
@@ -62,20 +65,30 @@ const handleAddDigest = () => {
       });
       handleList(`HackerNews (${numPost} Posts)`)
     } else if(rSource == "reddit"){
+
+      if(subReddit.trim().length !== 0){
       console.log(numPost + "reddit " + subReddit) 
       await createRedditDocument(userAuth, 
         {name:subReddit, rNum:numPost}
       );
+      setInputErrorToggle(false)
       handleList(`r/${subReddit} (${numPost} Posts)`)
+    }
+      else {
+        console.log(numPost + "reddit ghgh") 
+        setInputErrorToggle(true)
+      }
     }
  } else{
       router.push('/login')
  }})
+
+ unsubscribeFromAuth()
 } 
 
   return (
     <div className={styles.dn__container}>
-      Add New Digest:
+      <div className={styles.dn__header}>Add New Digest</div>
     <div className={styles.main__left}>
       <div className={styles.main__item}>
         RSS Source:
@@ -87,12 +100,17 @@ const handleAddDigest = () => {
       <div className={styles.main__item}>
         Subreddit:
         <div className={styles.main__input}>
-        <input
+        {!inputErrorToggle ? (<input
           type="text"
           value={state.value}
           onChange={handleInput}
           placeholder="Enter a subreddit"
-        />
+        />) : (<><input
+          type="text"
+          value={state.value}
+          onChange={handleInput}
+          placeholder="Enter a subreddit"
+        /><span className={styles.main__input__text}>Please enter the subreddit name</span></>)}
         </div>
       </div>}
       <div className={styles.main__item}>
