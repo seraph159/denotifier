@@ -17,4 +17,4 @@ jobs:
         run: |
           curl --request POST \
           --url 'https://denotifier.com/api/email' \
-          --header 'Authorization: Bearer ${{secrets.GH_API_KEY}}'
+          --header 'authorization: Bearer ${{ secrets.GH_API_KEY }}'
