@@ -61,7 +61,7 @@ const handleAddDigest = (e) => {
       if(rSource == "hn"){
       console.log(numPost)
       await createHnDocument(userAuth, {
-        hNum:numPost
+        name:"hNum", rNum:numPost
       });
       handleList(`HackerNews (${numPost} Posts)`)
     } else if(rSource == "reddit"){

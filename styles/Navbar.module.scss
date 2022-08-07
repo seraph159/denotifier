@@ -5,7 +5,16 @@
     .nav__menu{
         display: flex;
         justify-content: space-between;
-        padding: 20px 100px;
+        padding: 20px;
+
+        .nav__logo{
+            display: flex;
+            align-items: center;
+
+            .nav__logo__title{
+                margin-left: 10px;
+            }
+        }
 
         .nav__list{
             display: flex;
@@ -16,6 +25,23 @@
             .nav__item{
                 padding: 0px 20px;
                 color: $--color-primary;
+            }
+
+            .nav__item__signbtn{
+                display: flex;
+                align-items: center;
+                padding: 10px;
+                border: solid $--color-primary 2px;
+                border-radius: 3px;
+                color: $--color-primary;
+                cursor: pointer;
+
+                &:hover{
+                    background-color: #fff;
+                    border-color: transparent;
+                    color: #444;
+                }
+        
             }
         }
 
