@@ -1,0 +1,30 @@
+name: Daily Digest Cron
+
+on:
+  schedule:
+    - cron: "0 14 * * *"
+  workflow_dispatch:
+
+env:
+  NEXT_PUBLIC_FIREBASE_API_KEY: ${{ secrets.NEXT_PUBLIC_FIREBASE_API_KEY }}
+  NEXT_PUBLIC_FIREBASE_AUTH_DOM: ${{ secrets.NEXT_PUBLIC_FIREBASE_AUTH_DOM }}
+  NEXT_PUBLIC_FIREBASE_PJT_ID: ${{ secrets.NEXT_PUBLIC_FIREBASE_PJT_ID }}
+  NEXT_PUBLIC_FIREBASE_STG_BUCKET: ${{ secrets.NEXT_PUBLIC_FIREBASE_STG_BUCKET }}
+  NEXT_PUBLIC_FIREBASE_MSG_ID: ${{ secrets.NEXT_PUBLIC_FIREBASE_MSG_ID }}
+  NEXT_PUBLIC_FIREBASE_APP_ID: ${{ secrets.NEXT_PUBLIC_FIREBASE_APP_ID }}
+  NEXT_PUBLIC_FIREBASE_MEASURE_ID: ${{ secrets.NEXT_PUBLIC_FIREBASE_MEASURE_ID }}
+  SPARKPOST_API: ${{ secrets.SPARKPOST_API }}
+
+jobs:
+  report:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 12
+
+      - run: yarn install --frozen-lockfile
+
+      - run: node github-automate/dailydigest.js
