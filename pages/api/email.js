@@ -7,8 +7,11 @@ import { getUserDocument } from '../../firebase/firebase.utils';
 
 export default async function sendEmail(req, res) {
 
+const auth_secret = process.env.GH_API_KEY
 const client = new SparkPost(process.env.SPARKPOST_API);
-
+const auth_header = req.headers.authorization;
+const auth_token = auth_header.split(" ")[1];
+if(auth_token === auth_secret){
 let userList = await getUserDocument();
 let gHtml;
 
@@ -25,7 +28,8 @@ client.transmissions
         html: gHtml
     },
     recipients:[{
-        address: `${userList[i].email}`
+        address: `${userList[i].email}`,
+        name: 'deNotifier Digest'
     }]
 }).then(data => {
     console.log('Woohoo! You just sent your first mailing!')
@@ -38,5 +42,8 @@ client.transmissions
 }
 
 res.status(200).send(gHtml)
-
+} else {
+    res.statusCode = 404;
+    res.send('Unauthorized')
+}
 }
