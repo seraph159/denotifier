@@ -1,5 +1,4 @@
 const SparkPost = require("sparkpost");
-require('dotenv').config();
 const BASE_URL = 'https://api.hackerwebapp.com';
 const types = ["news", "best", "newest"];
 const page = 1;
