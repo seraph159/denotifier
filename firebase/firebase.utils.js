@@ -60,7 +60,7 @@ const config = {
           email,
           createdAt,
           ...additionalData
-        });
+        }, { merge: true });
       } catch(err){
         console.log("error creating user", err.message)
       }
