@@ -36,7 +36,15 @@ const config = {
     return newArray
   }
 
-export const createUserProfileDocument = async (userAuth, additionalData) => {
+  export const getUserProfileDocumentRef = async (userAuth) => {
+    if(!userAuth) return; //if userAuth is null then exit
+
+    const userRef = doc(firestore, "users", userAuth.uid);
+
+    return userRef;
+  }
+
+  export const createUserProfileDocument = async (userAuth, additionalData) => {
     if(!userAuth) return; //if userAuth is null then exit
 
     const userRef = doc(firestore, "users", userAuth.uid);
@@ -61,7 +69,7 @@ export const createUserProfileDocument = async (userAuth, additionalData) => {
     return userRef;
   }
 
-export const createHnDocument = async (userAuth, additionalData) => {
+  export const createHnDocument = async (userAuth, additionalData) => {
     if(!userAuth) return; //if userAuth is null then exit
 
     const userRef = doc(firestore, "users", userAuth.uid);
@@ -73,7 +81,7 @@ export const createHnDocument = async (userAuth, additionalData) => {
         await setDoc(userRef, {
           email,
           createdAt,
-          ...additionalData
+          hn:[additionalData]
         }, { merge: true });
       } catch(err){
         console.log("error creating hn document", err.message)
