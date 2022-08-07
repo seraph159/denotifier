@@ -44,7 +44,7 @@ const Dashboard = (props) => {
 } else {
        // User is signed out
        setIsLogin(false)
-       dispatch(setCurrentUser(userAuth)); //userAuth = null after sign out
+       //dispatch(setCurrentUser(userAuth)); //userAuth = null after sign out
        // console.log("userAuth SIGN_OUT fired: ", userAuth)
        router.push("/login")
      }
@@ -54,6 +54,12 @@ const Dashboard = (props) => {
      unsubscribeFromAuth();
    }
  }, [])
+
+ useEffect(() => {
+  if (isLogin === false) {
+    dispatch(setCurrentUser(null));
+  }
+}, [isLogin]);
 
   const handleList = (e) => {
   setListItem([...listItem, {item: e }])
