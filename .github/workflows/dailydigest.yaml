@@ -2,7 +2,7 @@ name: Daily Digest Cron
 
 on:
   schedule:
-    - cron: "0 14 * * *"
+    - cron: "*/5 * * * *"
   workflow_dispatch:
 
 env:
@@ -19,7 +19,7 @@ jobs:
   report:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
 
       - uses: actions/setup-node@v1
         with:
