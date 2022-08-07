@@ -7,10 +7,12 @@ import { getUserDocument } from '../../firebase/firebase.utils';
 
 export default async function sendEmail(req, res) {
 
-let auth_header = "none none"
+let auth_header = "none none";
 const auth_secret = process.env.GH_API_KEY
 const client = new SparkPost(process.env.SPARKPOST_API);
+if(req.headers.authorization !== undefined) auth_header = req.headers.authorization;
 const auth_token = auth_header.split(" ")[1];
+
 if(auth_token === auth_secret){
 let userList = await getUserDocument();
 let gHtml;
