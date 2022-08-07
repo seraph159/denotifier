@@ -5,11 +5,14 @@ on:
   schedule:
     # Runs "at minute 55 past every hour" (see https://crontab.guru)
     - cron: '55 * * * *'
+  workflow_dispatch:
+  
 jobs:
   build:
     name: Trigger Site Rebuild
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v3
       - name: Invoke API route/endpoint
         run: |
           curl --request POST \
