@@ -3,7 +3,7 @@ import {signInWithGoogle, auth} from '../firebase/firebase.utils'
 import {signInWithEmailAndPassword, onAuthStateChanged } from 'firebase/auth'
 import Link from 'next/link'
 import {useRouter} from 'next/router'
-import Navbar from '../components/navbar.component'
+import Logo from '../components/logo.component'
 import styles from '../styles/Login.module.scss'
 
 const Login = () => {
@@ -52,8 +52,8 @@ useEffect(() => {
 
  return (
     <>
-    <Navbar/>
     <div className={styles.login__main__container}>
+    <Logo width={60} height={60}/>
     <h2 className="text-center">Login</h2>
     <div className={styles.login__container}>
     <form className={styles.sign_in_form} onSubmit={handleSubmit}>

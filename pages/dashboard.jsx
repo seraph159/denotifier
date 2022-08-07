@@ -1,35 +1,75 @@
-import {auth} from "../firebase/firebase.utils";
+import {auth, getUserProfileDocumentRef} from "../firebase/firebase.utils";
 import { onAuthStateChanged } from "firebase/auth";
 import Navbar from '../components/navbar.component'
 import Main from '../components/main.component'
+import Card from '../components/card.component'
+import Loader from '../components/loader.component'
+import {useState, useEffect} from 'react'
+import {useRouter} from 'next/router'
 import List from '../components/list.component'
-import {useState} from 'react'
+import { useDispatch, useSelector } from 'react-redux';
+import { onSnapshot } from "firebase/firestore"
+import { setCurrentUser } from "../redux/features/user/userSlice";
 
-const Dashboard = ({}) => {
+const Dashboard = (props) => {
 
-const [listItem, setListItem] = useState([])
+  const [listItem, setListItem] = useState([])
+  const [isLogin, setIsLogin] = useState(false)
+ 
+  let router = useRouter()
+  const dispatch = useDispatch();
+  const currentUser = useSelector(
+    (state) => state.user.currentUser
+  )
 
-onAuthStateChanged(auth, (user) => {
-  if (user) {
-    // User is signed in, see docs for a list of available properties
-    // https://firebase.google.com/docs/reference/js/firebase.User
-    console.log(auth.currentUser)
-    // ...
-  } else {
-    // User is signed out
-    // ...
-  }
-});
+  useEffect(() => {
+    
+    const unsubscribeFromAuth = onAuthStateChanged(auth, async (userAuth) => {
+     if (userAuth) {
+       // User is signed in
+       const userRef = await getUserProfileDocumentRef(userAuth)
 
-const handleList = (e) => {
+       console.log(userRef)
+       const unSubscribeFromSnapshot = await onSnapshot(userRef, async (snapShot) => {
+        
+        dispatch(setCurrentUser({
+             id: snapShot.id,
+             ...snapShot.data()
+         }))
+
+       setIsLogin(true);
+         //console.log("userAuth SIGN_IN fired: ", userAuth)
+       })
+
+} else {
+       // User is signed out
+       setIsLogin(false)
+       dispatch(setCurrentUser(userAuth)); //userAuth = null after sign out
+       // console.log("userAuth SIGN_OUT fired: ", userAuth)
+       router.push("/login")
+     }
+   });
+
+   return () => {
+     unsubscribeFromAuth();
+   }
+ }, [])
+
+  const handleList = (e) => {
   setListItem([...listItem, {item: e }])
 }
 
   return (
     <>
+    {isLogin ?
+    <>
+    {console.log(currentUser)}
     <Navbar isLoggedIn={true}/>
-    <List listItem={listItem}/>
     <Main handleList={handleList}/>
+    <Card headerName={"YOUR CURRENT DIGEST"} contentHeaderItem={[{name:"HACKERNEWS", dNum:currentUser.hn}, {name:"REDDIT", dNum: currentUser.reddit}]}>
+    </Card>
+    </> : (<Loader></Loader>)
+    }
     </>
   )
 }

@@ -5,6 +5,7 @@ import Link from 'next/link'
 import {useRouter} from 'next/router'
 import Navbar from '../components/navbar.component'
 import styles from '../styles/SignUp.module.scss'
+import Logo from '../components/logo.component'
 
 const SignUp = () => {
 
@@ -43,7 +44,7 @@ const handleSubmit = async (event) => {
             const {user} = await createUserWithEmailAndPassword(auth, email, password);
 
             console.log(user, {displayName})
-            createUserProfileDocument(user, {displayName})
+            await createUserProfileDocument(user, {displayName})
 
             setState({
                 displayName: "",
@@ -66,8 +67,8 @@ const handleChange = (event) => {
 
 return (
     <>
-    <Navbar />
     <div className={styles.signup__main__container}>
+    <Logo width={60} height={60}/>
     <h2 className="text-center">Sign Up</h2>
      <hr/>
     <div className={styles.signup__container}>
