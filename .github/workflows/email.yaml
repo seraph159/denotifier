@@ -8,6 +8,6 @@ on:
       steps:
         - name: Invoke API route/endpoint
           run: |
-          curl --request POST \
-          --url 'https://denotifier.com/api/email' \
-          --header 'Authorization: Bearer ${{secrets.API_KEY}}'
+            curl --request POST \
+            --url 'https://denotifier.com/api/email' \
+            --header 'Authorization: Bearer ${{secrets.API_KEY}}'
