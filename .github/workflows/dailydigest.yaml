@@ -27,4 +27,4 @@ jobs:
 
       - run: yarn install --frozen-lockfile
 
-      - run: node --experimental-modules github-automate/dailydigest.js
+      - run: node --experimental-modules github-automate/dailydigest.mjs
