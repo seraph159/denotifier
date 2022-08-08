@@ -2,8 +2,8 @@ const SparkPost = require("sparkpost");
 const BASE_URL = 'https://api.hackerwebapp.com';
 const types = ["news", "best", "newest"];
 const page = 1;
-const generateHtml = require('../templates/dTemplate')
-const { getUserDocument } = require('../firebase/firebase.utils')
+import  generateHtml from './dTemplate.mjs'
+import { getUserDocument } from './firebase.mjs'
 
 (async function run() {
 
