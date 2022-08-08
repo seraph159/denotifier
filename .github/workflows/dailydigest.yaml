@@ -2,7 +2,7 @@ name: Daily Digest Cron
 
 on:
   schedule:
-    - cron: "*/5 * * * *"
+    - cron: "* * * * *"
   workflow_dispatch:
 
 env:
