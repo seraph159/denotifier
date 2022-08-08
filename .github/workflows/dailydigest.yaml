@@ -27,6 +27,4 @@ jobs:
 
       - run: yarn install --frozen-lockfile
 
-      - run: yarn add esm
-
-      - run: node -r esm github-automate/dailydigest.js
+      - run: node --experimental-modules github-automate/dailydigest.js
