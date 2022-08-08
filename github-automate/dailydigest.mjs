@@ -1,4 +1,4 @@
-const SparkPost = require("sparkpost");
+import SparkPost from "sparkpost"
 const BASE_URL = 'https://api.hackerwebapp.com';
 const types = ["news", "best", "newest"];
 const page = 1;
