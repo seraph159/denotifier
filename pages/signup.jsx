@@ -67,7 +67,7 @@ const handleChange = (event) => {
 return (
     <>
     <div className={styles.signup__main__container}>
-    <Logo width={60} height={60}/>
+    <Link href="/"><a><Logo width={60} height={60}/></a></Link>
     <h2 className="text-center">Sign Up</h2>
      <hr/>
     <div className={styles.signup__container}>

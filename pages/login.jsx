@@ -53,7 +53,7 @@ useEffect(() => {
  return (
     <>
     <div className={styles.login__main__container}>
-    <Logo width={60} height={60}/>
+    <Link href="/"><a><Logo width={60} height={60}/></a></Link>
     <h2 className="text-center">Login</h2>
     <div className={styles.login__container}>
     <form className={styles.sign_in_form} onSubmit={handleSubmit}>
