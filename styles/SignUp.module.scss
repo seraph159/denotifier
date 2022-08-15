@@ -13,7 +13,7 @@
     .signup__container{
         border: 1px solid #C4C4C4;
         border-radius: 0.25rem;
-        padding: 0px 20px 10px 20px;
+        padding: 0px 30px 10px 30px;
         margin: 10px;
     
     .sign_up_form{
@@ -34,6 +34,14 @@
                 padding: .5rem .75rem;
                 margin: 5px 0px;
             }
+
+            .pass__input__text{
+              font-size: 65%;
+              font-weight: bold;
+              color: #dc3545;
+              white-space: break-spaces;
+
+          }
         }
     }
 

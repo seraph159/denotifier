@@ -17,6 +17,9 @@ const [state, setState] = useState({
     confirmPassword: ""
 });
 
+const [isPasswordErrorToggle, setIsPasswordErrorToggle] = useState(false)
+const [isPasswordMatchErrorToggle, setIsPasswordMatchErrorToggle] = useState(false)
+
 useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
         if (user) {
@@ -34,9 +37,19 @@ const handleSubmit = async (event) => {
 
         const {displayName, email, password, confirmPassword} = state;
 
-        if(password !==  confirmPassword){
-            alert("passwords do no match")
+        if(password.length <= 8){
+            setIsPasswordErrorToggle(true)
+            setIsPasswordMatchErrorToggle(false)
             return
+        } else{
+            setIsPasswordErrorToggle(false)
+        }
+
+        if(password !==  confirmPassword){
+            setIsPasswordMatchErrorToggle(true)
+            return
+        } else{
+            setIsPasswordMatchErrorToggle(false)
         }
 
         try{
@@ -83,10 +96,13 @@ return (
      <div className={styles.form__group}>
         Password
          <input type="password" onChange={handleChange} placeholder="Password" className="form-control" name="password" required="required" />
+        {isPasswordErrorToggle  && <span className={styles.pass__input__text}>Please enter a password greater than 8 characters</span>}
+        {isPasswordMatchErrorToggle  && <span className={styles.pass__input__text}>Passwords do not match. Please try again</span>}
      </div>
      <div className={styles.form__group}>
         Confirm Password
          <input type="password" onChange={handleChange} placeholder="Confirm Password" className="form-control" name="confirmPassword" required="required" />
+         {isPasswordMatchErrorToggle  && <span className={styles.pass__input__text}>Passwords do not match. Please try again</span>}
      </div>
      <div className={styles.form__group}>
          <button type="submit" className={styles.button}>Sign Up</button>
