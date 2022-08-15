@@ -96,12 +96,11 @@ return (
      <div className={styles.form__group}>
         Password
          <input type="password" onChange={handleChange} className="form-control" name="password" required="required" />
-        {isPasswordErrorToggle  && <span className={styles.pass__input__text}>Please enter a password greater than 8 characters</span>}
-        {isPasswordMatchErrorToggle  && <span className={styles.pass__input__text}>Passwords do not match. Please try again</span>}
      </div>
      <div className={styles.form__group}>
         Confirm Password
          <input type="password" onChange={handleChange} className="form-control" name="confirmPassword" required="required" />
+         {isPasswordErrorToggle  && <span className={styles.pass__input__text}>Please enter a password greater than 8 characters</span>}
          {isPasswordMatchErrorToggle  && <span className={styles.pass__input__text}>Passwords do not match. Please try again</span>}
      </div>
      <div className={styles.form__group}>
