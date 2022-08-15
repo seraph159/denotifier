@@ -3,14 +3,13 @@ import Head from 'next/head'
 import Layout from '../components/layout.component'
 import { Provider } from 'react-redux'
 import { PersistGate } from 'redux-persist/integration/react'
-import {store, persistor} from '../redux/store'
+import { store, persistor } from '../redux/store'
 
 
 import { useEffect } from 'react';
 import { auth, createUserProfileDocument } from "../firebase/firebase.utils";
 import { onAuthStateChanged } from "firebase/auth";
-import { onSnapshot } from "firebase/firestore"
-import { useDispatch, useSelector } from 'react-redux';
+
 
 function MyApp({ Component, pageProps }) {
 

@@ -1,9 +1,9 @@
 import Dropdown from 'react-dropdown';
 import 'react-dropdown/style.css';
-import {useState} from 'react';
+import { useState } from 'react';
 import { auth, createHnDocument, createRedditDocument } from "../firebase/firebase.utils";
 import { onAuthStateChanged } from "firebase/auth";
-import {useRouter} from 'next/router'
+import { useRouter } from 'next/router'
 
 import styles from '../styles/Main.module.scss'
 

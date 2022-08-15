@@ -1,12 +1,11 @@
-import {auth, getUserProfileDocumentRef} from "../firebase/firebase.utils";
+import { auth, getUserProfileDocumentRef } from "../firebase/firebase.utils";
 import { onAuthStateChanged } from "firebase/auth";
 import Navbar from '../components/navbar.component'
 import Main from '../components/main.component'
 import Card from '../components/card.component'
 import Loader from '../components/loader.component'
-import {useState, useEffect} from 'react'
-import {useRouter} from 'next/router'
-import List from '../components/list.component'
+import { useState, useEffect } from 'react'
+import { useRouter } from 'next/router'
 import { useDispatch, useSelector } from 'react-redux';
 import { onSnapshot } from "firebase/firestore"
 import { setCurrentUser } from "../redux/features/user/userSlice";

@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
-import {signInWithGoogle, auth} from '../firebase/firebase.utils'
-import {signInWithEmailAndPassword, onAuthStateChanged } from 'firebase/auth'
+import { signInWithGoogle, auth } from '../firebase/firebase.utils'
+import { signInWithEmailAndPassword, onAuthStateChanged } from 'firebase/auth'
 import Link from 'next/link'
-import {useRouter} from 'next/router'
+import { useRouter} from 'next/router'
 import Logo from '../components/logo.component'
 import styles from '../styles/Login.module.scss'
 

@@ -1,5 +1,4 @@
 import Head from 'next/head'
-import Image from 'next/image'
 import Intro from "../components/intro.component"
 import Main from "../components/main.component"
 import Navbar from '../components/navbar.component'
@@ -13,6 +12,7 @@ function Home() {
         <Head>
         <title>deNotifier</title>
         <meta name="description" content="RSS Notifier" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="icon" href="/favicon.ico" />
         </Head>
         <Navbar />
