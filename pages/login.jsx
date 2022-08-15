@@ -60,11 +60,11 @@ useEffect(() => {
     <hr/>
     <div className={styles.form__group}>
       Email
-        <input type="email" onChange={handleChange} placeholder="Email Address" className="form-control" name="email" required="required" />
+        <input type="email" onChange={handleChange} className="form-control" name="email" required="required" />
     </div>
     <div className={styles.form__group}>
       Password
-        <input type="password" onChange={handleChange} placeholder="Password" className="form-control" name="password" required="required" />
+        <input type="password" onChange={handleChange} className="form-control" name="password" required="required" />
     </div>
     <div className={styles.form__group}>
         <button className={styles.button} type="submit">Login</button>

@@ -87,21 +87,21 @@ return (
     <form className={styles.sign_up_form} onSubmit={handleSubmit}>
      <div className={styles.form__group}>
         Username
-         <input type="text" onChange={handleChange} placeholder="Username" className="form-control" name="displayName" required="required" />
+         <input type="text" onChange={handleChange} className="form-control" name="displayName" required="required" />
      </div>
      <div className={styles.form__group}>
         Email
-         <input type="email" onChange={handleChange} placeholder="Email Address" className="form-control" name="email" required="required" />
+         <input type="email" onChange={handleChange} className="form-control" name="email" required="required" />
      </div>
      <div className={styles.form__group}>
         Password
-         <input type="password" onChange={handleChange} placeholder="Password" className="form-control" name="password" required="required" />
+         <input type="password" onChange={handleChange} className="form-control" name="password" required="required" />
         {isPasswordErrorToggle  && <span className={styles.pass__input__text}>Please enter a password greater than 8 characters</span>}
         {isPasswordMatchErrorToggle  && <span className={styles.pass__input__text}>Passwords do not match. Please try again</span>}
      </div>
      <div className={styles.form__group}>
         Confirm Password
-         <input type="password" onChange={handleChange} placeholder="Confirm Password" className="form-control" name="confirmPassword" required="required" />
+         <input type="password" onChange={handleChange} className="form-control" name="confirmPassword" required="required" />
          {isPasswordMatchErrorToggle  && <span className={styles.pass__input__text}>Passwords do not match. Please try again</span>}
      </div>
      <div className={styles.form__group}>
