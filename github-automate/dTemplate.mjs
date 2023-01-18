@@ -21,7 +21,7 @@ let hData = [];
         });
     }
 
-    if('reddit' in userData){
+    if (Array.isArray(userData.reddit) && userData.reddit.length) {
         for(let i = 0; i < userData.reddit.length; i++){
         var config = {
             method: 'get',
@@ -38,7 +38,6 @@ let hData = [];
             console.log(error);
         });
         console.log("two")
-
     }
 }
     return `<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
