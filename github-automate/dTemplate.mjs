@@ -326,7 +326,7 @@ let hData = [];
                               <tr>
                                 <td style="font-size: 0;" valign="top">
                                   <!--[if (gte mso 9)|(IE)]><table width="100%" border="0" cellspacing="0" cellpadding="0" role="presentation"><tr><td width="50%" valign="top"><![endif]-->
-                                  ${hData.slice(0,userData.hn[0].rNum).map((e, idx)=>
+                                  ${(userData.hn && userData.hn[0] && userData.hn[0].rNum) ? hData.slice(0,userData.hn[0].rNum).map((e, idx)=>
                                     (` <div class="pc-sm-mw-100pc" style="display: inline-block; width: 100%; max-width: 280px; vertical-align: top;">
                                   <table border="0" cellpadding="0" cellspacing="0" width="100%" role="presentation">
                                     <tbody>
@@ -374,7 +374,7 @@ let hData = [];
                                       </tr>
                                     </tbody>
                                   </table>
-                                </div>`))}
+                                </div>`)) : ''}
                                   <!--[if (gte mso 9)|(IE)]></td><td width="50%" valign="top"><![endif]-->
                                   <div class="pc-sm-mw-100pc" style="display: inline-block; width: 100%; max-width: 280px; vertical-align: top;"></div>
                                   <!--[if (gte mso 9)|(IE)]></td></tr></table><![endif]-->
