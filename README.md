@@ -1,3 +1,23 @@
+<div align="center">
+<img src="https://i.ibb.co/Ytt989R/denotifier-white.png" width="10%" />
+</div>
+
+deNotifier is a web application built with Next.js, React, Redux, and Firebase that helps you stay updated with your favorite RSS feeds. 📰
+
+## Features
+
+- 📥 Add and manage your RSS feed subscriptions.
+- 📬 Receive a daily curated digest through your email for new articles.
+- 📖 Read and bookmark articles for later.
+
+## Technologies Used
+
+- [Next.js](https://nextjs.org/) - A React framework for server-side rendering and static site generation.
+- [React](https://reactjs.org/) - A JavaScript library for building user interfaces.
+- [Redux](https://redux.js.org/) - A predictable state container for managing application state.
+- [Firebase](https://firebase.google.com/) - A cloud-based platform for building web and mobile applications.
+
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
