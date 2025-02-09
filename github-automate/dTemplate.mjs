@@ -442,7 +442,7 @@ let hData = [];
                               <tr>
                                 <td style="font-size: 0;" valign="top">
                                   <!--[if (gte mso 9)|(IE)]><table width="100%" border="0" cellspacing="0" cellpadding="0" role="presentation"><tr><td width="50%" valign="top"><![endif]-->
-                                  ${resData[idx].slice(0,e.rNum).map((f, idx)=>(`<div class="pc-sm-mw-100pc" style="display: inline-block; width: 100%; max-width: 280px; vertical-align: top;">
+                                  ${(resData[idx] || []).slice(0,e.rNum).map((f, idx)=>(`<div class="pc-sm-mw-100pc" style="display: inline-block; width: 100%; max-width: 280px; vertical-align: top;">
                                   <table border="0" cellpadding="0" cellspacing="0" width="100%" role="presentation">
                                     <tbody>
                                       <tr>
